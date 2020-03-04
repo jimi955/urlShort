@@ -1,7 +1,7 @@
 # urlShort
 将长链接转换成短链接
 application.yml内容参考：
-
+```yaml
 spring:
   datasource:
     url: jdbc:mysql://ip:8080/url_shorter
@@ -14,3 +14,4 @@ spring:
       ddl-auto: update
 #   控制台显示SQL
     show-sql: true
+```
