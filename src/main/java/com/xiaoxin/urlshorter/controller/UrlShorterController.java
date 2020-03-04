@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("/shorter")
 public class UrlShorterController {
 
     @Autowired
@@ -21,14 +22,14 @@ public class UrlShorterController {
     @Autowired
     UrlShortRepository urlShortRepository;
 
-    @RequestMapping("/create/shorter")
+    @RequestMapping("/create")
     public String getShorterUrl(@RequestParam("url") String url, HttpServletRequest request) {
         if (url == null) {
             return "No Param url";
         }
         System.out.println(url);
 
-        String host = "http://" + request.getServerName() + ":" + request.getServerPort() + "/";
+        String host = "http://" + request.getServerName() + ":" + request.getServerPort() + "/shorter/";
         // 1：判断该链接是否存在
         UrlShort urlShort = urlShortRepository.findByLonger(url);
         if (urlShort != null) {
